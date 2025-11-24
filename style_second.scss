@@ -311,6 +311,24 @@ html,body {
             top:5px;
             z-index:9999;
         }
+
+    #table_ch{
+        background-color: vars.$color1;
+        margin:30px ;
+        text-align: center;
+        td{
+                border: 2px solid black;
+            }
+            thead{
+                background-color: #9e8006;
+                font-size: vars.$font-size5;
+                &:hover{
+                    background-color: #f2d873;
+                }
+            }
+    }
+
+
 }
 
             

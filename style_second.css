@@ -263,4 +263,19 @@ html #delete_bt, body #delete_bt {
   right: 5px;
   top: 5px;
   z-index: 9999;
+}
+html #table_ch, body #table_ch {
+  background-color: #fff;
+  margin: 30px;
+  text-align: center;
+}
+html #table_ch td, body #table_ch td {
+  border: 2px solid black;
+}
+html #table_ch thead, body #table_ch thead {
+  background-color: #9e8006;
+  font-size: 1.2rem;
+}
+html #table_ch thead:hover, body #table_ch thead:hover {
+  background-color: #f2d873;
 }/*# sourceMappingURL=style_second.css.map */

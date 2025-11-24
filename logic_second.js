@@ -14,6 +14,7 @@ const navWrite=document.getElementById("vitamine");
 //find id to collocate the table
 const tableDiv= document.getElementById("tableDiv");
 
+
 //now logic if I click create table, show me table 
 
 navWrite.addEventListener("click", ()=>{
@@ -86,3 +87,47 @@ navWrite.addEventListener("click", ()=>{
 
 })
 
+
+//if i click to Vitamina i want to my choise in a table and then submit it 
+//take a vitamina 
+const dropdownVit = document.querySelector('.dropdown-menu-css');
+
+dropdownVit.addEventListener("click",function(e) {
+    //block defaul link action(a)
+    e.preventDefault();
+    //delete table vit if is still open 
+    const existingTable = document.getElementById("table_1")
+        if(existingTable){
+            existingTable.remove()
+        }
+        navWrite.textContent="Le vitamine+"
+
+
+    //if you choose element a in dopdown-item
+    if (e.target && e.target.matches("a.dropdown-item")) {
+        console.log("Hai scelto:", e.target.textContent);
+        yourVit = e.target.textContent;
+        console.log(yourVit);
+        //if already exist a table delete it 
+        const existingTable = document.getElementById("table_ch")
+        if(existingTable){
+            existingTable.remove()
+        }
+
+        tableChoose= document.createElement("table");
+        tableChoose.id="table_ch"
+        tableChoose.innerHTML = `
+            <thead>
+                <tr><td>Vitamina</td><td>Pasto</td><td>Paese(facoltativo)</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>${yourVit}</td><td>...</td><td>...</td></tr>
+                
+            </tbody>
+            `;
+            //append table to its div
+            tableDiv.appendChild(tableChoose);
+            console.log("tabella creata")
+
+    }
+});
