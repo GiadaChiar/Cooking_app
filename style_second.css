@@ -1,0 +1,266 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  background-image: url("img/bowls_food.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* mostra menu principale al hover */
+  /* mostra submenu al hover */
+}
+html #vitamine:hover, body #vitamine:hover {
+  text-decoration: underline;
+}
+html #submit, body #submit {
+  background-color: #474444;
+  border-color: #fff;
+}
+html .btn-group, html .btn.btn-primary, body .btn-group, body .btn.btn-primary {
+  margin-top: 5rem;
+  margin-left: 2.5rem;
+}
+html .btn-group .btn.btn-secondary, html .btn.btn-primary .btn.btn-secondary, body .btn-group .btn.btn-secondary, body .btn.btn-primary .btn.btn-secondary {
+  padding: 10px;
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+}
+html .btn-group li a:hover, html .btn.btn-primary li a:hover, body .btn-group li a:hover, body .btn.btn-primary li a:hover {
+  color: #fff;
+}
+html .btn-group #vitA, html .btn.btn-primary #vitA, body .btn-group #vitA, body .btn.btn-primary #vitA {
+  background-color: #deb032;
+}
+html .btn-group #vitA:hover, html .btn.btn-primary #vitA:hover, body .btn-group #vitA:hover, body .btn.btn-primary #vitA:hover {
+  background-color: rgb(241, 209, 27);
+}
+html .btn-group #vitB, html .btn.btn-primary #vitB, body .btn-group #vitB, body .btn.btn-primary #vitB {
+  background-color: #abc107;
+}
+html .btn-group #vitB:hover, html .btn.btn-primary #vitB:hover, body .btn-group #vitB:hover, body .btn.btn-primary #vitB:hover {
+  background-color: #daf032;
+}
+html .btn-group #vitC, html .btn.btn-primary #vitC, body .btn-group #vitC, body .btn.btn-primary #vitC {
+  background-color: #df6311;
+}
+html .btn-group #vitC:hover, html .btn.btn-primary #vitC:hover, body .btn-group #vitC:hover, body .btn.btn-primary #vitC:hover {
+  background-color: rgb(241, 152, 27);
+}
+html .btn-group #vitD, html .btn.btn-primary #vitD, body .btn-group #vitD, body .btn.btn-primary #vitD {
+  background-color: #3257de;
+}
+html .btn-group #vitD:hover, html .btn.btn-primary #vitD:hover, body .btn-group #vitD:hover, body .btn.btn-primary #vitD:hover {
+  background-color: rgb(21, 152, 228);
+}
+html .btn-group #vitE, html .btn.btn-primary #vitE, body .btn-group #vitE, body .btn.btn-primary #vitE {
+  background-color: rgb(241, 209, 27);
+}
+html .btn-group #vitE:hover, html .btn.btn-primary #vitE:hover, body .btn-group #vitE:hover, body .btn.btn-primary #vitE:hover {
+  background-color: #fdf216;
+}
+html .btn-group #vitK, html .btn.btn-primary #vitK, body .btn-group #vitK, body .btn.btn-primary #vitK {
+  background-color: #366712;
+}
+html .btn-group #vitK:hover, html .btn.btn-primary #vitK:hover, body .btn-group #vitK:hover, body .btn.btn-primary #vitK:hover {
+  background-color: rgb(49, 224, 15);
+}
+html .btn-group #vitB1, html .btn.btn-primary #vitB1, body .btn-group #vitB1, body .btn.btn-primary #vitB1 {
+  background-color: rgb(242, 230, 214);
+}
+html .btn-group #vitB1:hover, html .btn.btn-primary #vitB1:hover, body .btn-group #vitB1:hover, body .btn.btn-primary #vitB1:hover {
+  background-color: rgb(244, 213, 173);
+}
+html .btn-group #vitB2, html .btn.btn-primary #vitB2, body .btn-group #vitB2, body .btn.btn-primary #vitB2 {
+  background-color: rgb(249, 199, 133);
+}
+html .btn-group #vitB2:hover, html .btn.btn-primary #vitB2:hover, body .btn-group #vitB2:hover, body .btn.btn-primary #vitB2:hover {
+  background-color: rgb(245, 175, 84);
+}
+html .btn-group #vitB3, html .btn.btn-primary #vitB3, body .btn-group #vitB3, body .btn.btn-primary #vitB3 {
+  background-color: rgb(249, 163, 50);
+}
+html .btn-group #vitB3:hover, html .btn.btn-primary #vitB3:hover, body .btn-group #vitB3:hover, body .btn.btn-primary #vitB3:hover {
+  background-color: rgb(243, 150, 28);
+}
+html .btn-group #vitB5, html .btn.btn-primary #vitB5, body .btn-group #vitB5, body .btn.btn-primary #vitB5 {
+  background-color: rgb(214, 125, 7);
+}
+html .btn-group #vitB5:hover, html .btn.btn-primary #vitB5:hover, body .btn-group #vitB5:hover, body .btn.btn-primary #vitB5:hover {
+  background-color: rgb(186, 107, 5);
+}
+html .btn-group #vitB6, html .btn.btn-primary #vitB6, body .btn-group #vitB6, body .btn.btn-primary #vitB6 {
+  background-color: rgb(157, 108, 44);
+}
+html .btn-group #vitB6:hover, html .btn.btn-primary #vitB6:hover, body .btn-group #vitB6:hover, body .btn.btn-primary #vitB6:hover {
+  background-color: rgb(157, 100, 25);
+}
+html .btn-group #vitB7, html .btn.btn-primary #vitB7, body .btn-group #vitB7, body .btn.btn-primary #vitB7 {
+  background-color: rgb(157, 92, 6);
+}
+html .btn-group #vitB7:hover, html .btn.btn-primary #vitB7:hover, body .btn-group #vitB7:hover, body .btn.btn-primary #vitB7:hover {
+  background-color: rgb(114, 90, 58);
+}
+html .btn-group #vitB9, html .btn.btn-primary #vitB9, body .btn-group #vitB9, body .btn.btn-primary #vitB9 {
+  background-color: rgb(118, 81, 34);
+}
+html .btn-group #vitB9:hover, html .btn.btn-primary #vitB9:hover, body .btn-group #vitB9:hover, body .btn.btn-primary #vitB9:hover {
+  background-color: rgb(122, 73, 10);
+}
+html .btn-group #vitB12, html .btn.btn-primary #vitB12, body .btn-group #vitB12, body .btn.btn-primary #vitB12 {
+  background-color: rgb(75, 59, 39);
+}
+html .btn-group #vitB12:hover, html .btn.btn-primary #vitB12:hover, body .btn-group #vitB12:hover, body .btn.btn-primary #vitB12:hover {
+  background-color: rgb(91, 62, 28);
+}
+html .btn-group #italia, html .btn.btn-primary #italia, body .btn-group #italia, body .btn.btn-primary #italia {
+  background: linear-gradient(90deg, rgb(32, 122, 32), rgb(244, 243, 243), rgb(220, 88, 88));
+  margin-bottom: 0.2px;
+  margin-top: -10px;
+  text-align: center;
+}
+html .btn-group #italia:hover, html .btn.btn-primary #italia:hover, body .btn-group #italia:hover, body .btn.btn-primary #italia:hover {
+  background: linear-gradient(90deg, rgb(11, 94, 11), rgb(175, 172, 172), rgb(135, 12, 12));
+}
+html .btn-group #francia, html .btn.btn-primary #francia, body .btn-group #francia, body .btn.btn-primary #francia {
+  background: linear-gradient(90deg, rgb(14, 34, 112), rgb(244, 243, 243), rgb(220, 88, 88));
+  margin-bottom: 0.2px;
+  text-align: center;
+}
+html .btn-group #francia:hover, html .btn.btn-primary #francia:hover, body .btn-group #francia:hover, body .btn.btn-primary #francia:hover {
+  background: linear-gradient(90deg, rgb(4, 17, 68), rgb(175, 172, 172), rgb(135, 12, 12));
+}
+html .btn-group #spagna, html .btn.btn-primary #spagna, body .btn-group #spagna, body .btn.btn-primary #spagna {
+  background: linear-gradient(rgb(220, 88, 88), rgb(238, 238, 44), rgb(220, 88, 88));
+  text-align: center;
+  margin-bottom: -10px;
+}
+html .btn-group #spagna:hover, html .btn.btn-primary #spagna:hover, body .btn-group #spagna:hover, body .btn.btn-primary #spagna:hover {
+  background: linear-gradient(rgb(135, 12, 12), rgb(222, 222, 9), rgb(135, 12, 12));
+}
+html .btn-group #col, html .btn.btn-primary #col, body .btn-group #col, body .btn.btn-primary #col {
+  background-color: #daf032;
+  margin-top: -10px;
+}
+html .btn-group #col:hover, html .btn.btn-primary #col:hover, body .btn-group #col:hover, body .btn.btn-primary #col:hover {
+  background-color: #a5b80f;
+}
+html .btn-group #pr, html .btn.btn-primary #pr, body .btn-group #pr, body .btn.btn-primary #pr {
+  background-color: #b8b50f;
+}
+html .btn-group #pr:hover, html .btn.btn-primary #pr:hover, body .btn-group #pr:hover, body .btn.btn-primary #pr:hover {
+  background-color: #a7a407;
+}
+html .btn-group #sp, html .btn.btn-primary #sp, body .btn-group #sp, body .btn.btn-primary #sp {
+  background-color: #b8960f;
+}
+html .btn-group #sp:hover, html .btn.btn-primary #sp:hover, body .btn-group #sp:hover, body .btn.btn-primary #sp:hover {
+  background-color: #9e8006;
+}
+html .btn-group #cen, html .btn.btn-primary #cen, body .btn-group #cen, body .btn.btn-primary #cen {
+  background-color: #f0a315;
+  margin-bottom: -10px;
+}
+html .btn-group #cen:hover, html .btn.btn-primary #cen:hover, body .btn-group #cen:hover, body .btn.btn-primary #cen:hover {
+  background-color: #9e6106;
+}
+html .dropdown-css, body .dropdown-css {
+  position: relative;
+  display: inline-block;
+}
+html .dropdown-menu-css, body .dropdown-menu-css {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-width: 150px;
+  z-index: 1000;
+}
+html .dropdown-menu-css li a, body .dropdown-menu-css li a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #000;
+}
+html .dropdown-menu-css li a:hover, body .dropdown-menu-css li a:hover {
+  background-color: #eee;
+}
+html .dropdown-css:hover > .dropdown-menu-css, body .dropdown-css:hover > .dropdown-menu-css {
+  display: block;
+}
+html .dropdown-submenu:hover > .dropdown-menu-css, body .dropdown-submenu:hover > .dropdown-menu-css {
+  display: block;
+  top: 0;
+  left: 100%;
+}
+html #table_1, body #table_1 {
+  background-color: #fff;
+  margin: 20px;
+  border: 2px solid black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  opacity: 0.93;
+  position: relative;
+}
+html #table_1 td, body #table_1 td {
+  border: 2px solid black;
+}
+html #table_1 thead, body #table_1 thead {
+  background-color: #9e8006;
+  font-size: 1.2rem;
+  text-align: center;
+}
+html #table_1 thead:hover, body #table_1 thead:hover {
+  background-color: #f2d873;
+}
+html #table_1 tbody td, body #table_1 tbody td {
+  font-size: 11px;
+}
+html #table_1 tbody td:first-child, body #table_1 tbody td:first-child {
+  text-align: center;
+}
+html #table_1 tbody tr:first-child, body #table_1 tbody tr:first-child {
+  background-color: #deb032;
+}
+html #table_1 tbody tr:first-child:hover, body #table_1 tbody tr:first-child:hover {
+  background-color: rgb(241, 209, 27);
+}
+html #table_1 tbody tr:nth-child(2), body #table_1 tbody tr:nth-child(2) {
+  background-color: #abc107;
+}
+html #table_1 tbody tr:nth-child(2):hover, body #table_1 tbody tr:nth-child(2):hover {
+  background-color: #daf032;
+}
+html #table_1 tbody tr:nth-child(3), body #table_1 tbody tr:nth-child(3) {
+  background-color: #df6311;
+}
+html #table_1 tbody tr:nth-child(3):hover, body #table_1 tbody tr:nth-child(3):hover {
+  background-color: rgb(241, 152, 27);
+}
+html #table_1 tbody tr:nth-child(4), body #table_1 tbody tr:nth-child(4) {
+  background-color: #3257de;
+}
+html #table_1 tbody tr:nth-child(4):hover, body #table_1 tbody tr:nth-child(4):hover {
+  background-color: rgb(21, 152, 228);
+}
+html #table_1 tbody tr:nth-child(5), body #table_1 tbody tr:nth-child(5) {
+  background-color: rgb(241, 209, 27);
+}
+html #table_1 tbody tr:nth-child(5):hover, body #table_1 tbody tr:nth-child(5):hover {
+  background-color: #fdf216;
+}
+html #table_1 tbody tr:nth-child(6), body #table_1 tbody tr:nth-child(6) {
+  background-color: #366712;
+}
+html #table_1 tbody tr:nth-child(6):hover, body #table_1 tbody tr:nth-child(6):hover {
+  background-color: rgb(49, 224, 15);
+}
+html #delete_bt, body #delete_bt {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 9999;
+}/*# sourceMappingURL=style_second.css.map */

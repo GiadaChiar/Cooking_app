@@ -1,0 +1,317 @@
+//second page 
+
+@use 'variables' as vars;
+
+html,body {
+    height: 100%;
+    width:100%;
+    background-image: url('img/bowls_food.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    #vitamine{
+        &:hover{
+            text-decoration: underline;
+        }
+        
+    }
+
+    #submit{
+        background-color: #474444;
+        border-color: vars.$color1;
+    }
+    
+    .btn-group,.btn.btn-primary{
+        margin-top: 5rem;
+        margin-left: 2.5rem;
+        .btn.btn-secondary{
+            padding: 10px;
+            color:vars.$color1;
+            font-family:vars.$font2;
+            font-size: vars.$font-size6;
+        }
+        li a{
+                &:hover{
+                color: vars.$color1;
+            }
+            }
+        #vitA{
+                background-color: #deb032;
+                &:hover{
+                    background-color: rgb(241, 209, 27)
+                }
+            }
+        #vitB{
+                background-color: #abc107;
+                &:hover{
+                    background-color: #daf032;;
+                }
+            }
+        #vitC{
+                background-color: #df6311;
+                &:hover{
+                    background-color: rgb(241, 152, 27)
+                }
+            }
+        #vitD{
+                background-color: #3257de;
+                &:hover{
+                    background-color: rgb(21, 152, 228)
+                }
+            }
+        #vitE{
+                background-color: rgb(241, 209, 27);
+                &:hover{
+                    background-color: #fdf216;
+                }
+            }
+        #vitK{
+                background-color: #366712;
+                &:hover{
+                    background-color: rgb(49, 224, 15)
+                }
+            }
+    //subcategories B
+    #vitB1{
+                background-color: rgb(242, 230, 214);
+                &:hover{
+                    background-color:rgb(244, 213, 173);
+                }
+            }
+    #vitB2{
+            background-color: rgb(249, 199, 133);
+            &:hover{
+                background-color: rgb(245, 175, 84);
+            }
+        }
+    #vitB3{
+            background-color:  rgb(249, 163, 50);
+            &:hover{
+                background-color:  rgb(243, 150, 28);
+            }
+        }
+    #vitB5{
+            background-color: rgb(214, 125, 7);
+            &:hover{
+                background-color: rgb(186, 107, 5);
+            }
+        }
+    #vitB6{
+            background-color: rgb(157, 108, 44);
+            &:hover{
+                background-color: rgb(157, 100, 25);
+            }
+        }
+    #vitB7{
+            background-color: rgb(157, 92, 6);
+            &:hover{
+                background-color: rgb(114, 90, 58);
+            }
+        }
+    #vitB9{
+            background-color: rgb(118, 81, 34);
+            &:hover{
+                background-color: rgb(122, 73, 10);
+            }
+        }
+    #vitB12{
+            background-color: rgb(75, 59, 39);
+            &:hover{
+                background-color: rgb(91, 62, 28);
+            }
+        }
+
+        #italia{
+            background: linear-gradient(90deg,
+                rgb(32, 122, 32),rgb(244, 243, 243),rgb(220, 88, 88)
+            );
+            margin-bottom:0.2px;
+            margin-top:-10px;
+            text-align: center;
+            &:hover{
+                background: linear-gradient(90deg,
+                rgb(11, 94, 11),rgb(175, 172, 172),rgb(135, 12, 12)
+            );
+            }
+        }
+        #francia{
+            background: linear-gradient(90deg,
+                rgb(14, 34, 112),rgb(244, 243, 243),rgb(220, 88, 88)
+            );
+            margin-bottom:0.2px;
+            text-align: center;
+            &:hover{
+                background: linear-gradient(90deg,
+                rgb(4, 17, 68),rgb(175, 172, 172),rgb(135, 12, 12)
+            );
+            }
+        }
+        #spagna{
+            background: linear-gradient(
+                rgb(220, 88, 88),rgb(238, 238, 44),rgb(220, 88, 88)
+            );
+            text-align: center;
+            margin-bottom:-10px;
+            &:hover{
+                background: linear-gradient(
+                rgb(135, 12, 12),rgb(222, 222, 9),rgb(135, 12, 12)
+            );
+            }
+        }
+
+        #col{
+            background-color: #daf032;
+            margin-top:-10px;
+            &:hover{
+                background-color: #a5b80f;
+            }
+        }
+        #pr{
+            background-color: #b8b50f;
+            &:hover{
+                background-color:  #a7a407;
+            }
+        }
+
+        #sp{
+            background-color: #b8960f;
+            &:hover{
+                background-color:  #9e8006;
+            }
+        }
+        #cen{
+            background-color: #f0a315;
+            margin-bottom:-10px;
+            &:hover{
+                background-color:  #9e6106;
+            }
+        }
+        
+
+    }
+
+
+
+    
+        .dropdown-css {
+            position: relative;
+            display: inline-block;
+        }
+    
+        .dropdown-menu-css {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            min-width: 150px;
+            z-index: 1000;
+        }
+    
+        .dropdown-menu-css li a {
+            display: block;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #000;
+        }
+    
+        .dropdown-menu-css li a:hover {
+            background-color: #eee;
+        }
+    
+        /* mostra menu principale al hover */
+        .dropdown-css:hover>.dropdown-menu-css {
+            display: block;
+        }
+    
+        /* mostra submenu al hover */
+        .dropdown-submenu:hover>.dropdown-menu-css {
+            display: block;
+            top: 0;
+            left: 100%;
+        }
+
+        
+
+        //table style crate by js
+        #table_1{
+            background-color: vars.$color1;
+            margin: 20px;
+            border: 2px solid black;
+            font-family: vars.$font2;
+            opacity:0.93;
+            position: relative;
+            
+            
+            td{
+                border: 2px solid black;
+            }
+            thead{
+                background-color: #9e8006;
+                font-size: vars.$font-size5;
+                text-align: center;
+                &:hover{
+                    background-color: #f2d873;
+                }
+            }
+            tbody{
+                td{
+                    font-size:vars.$font-size11;
+                }
+                td:first-child{
+                    text-align: center;  
+                }
+                tr:first-child{
+                    background-color: #deb032;
+                    &:hover{
+                        background-color: rgb(241, 209, 27)
+                    }
+                }
+                tr:nth-child(2){
+                        background-color: #abc107;
+                        &:hover{
+                            background-color: #daf032;;
+                        }
+                }
+                tr:nth-child(3){
+                    background-color: #df6311;
+                    &:hover{
+                        background-color: rgb(241, 152, 27)
+                    }
+                }
+                tr:nth-child(4){
+                    background-color: #3257de;
+                    &:hover{
+                        background-color: rgb(21, 152, 228)
+                    }
+                }
+                tr:nth-child(5){
+                    background-color: rgb(241, 209, 27);
+                    &:hover{
+                        background-color: #fdf216;
+                    }
+                }
+                tr:nth-child(6){
+                    background-color: #366712;
+                    &:hover{
+                        background-color: rgb(49, 224, 15)
+                    }
+                }
+            }
+
+        }
+        #delete_bt{
+            position: absolute;
+            right:5px;
+            top:5px;
+            z-index:9999;
+        }
+}
+
+            
+
