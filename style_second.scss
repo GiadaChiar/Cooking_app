@@ -326,8 +326,21 @@ html,body {
                     background-color: #f2d873;
                 }
             }
+
     }
 
+    h2{
+        color: vars.$color1;
+        margin-top: 30px;
+        margin-left: 40px;
+        text-decoration: dashed;
+        font-family: vars.$font2;
+        font-size: vars.$font-size4;
+        #Vith{
+            margin-top: 50px;
+        }
+    }
+    
 
 }
 
