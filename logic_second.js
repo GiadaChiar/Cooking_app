@@ -144,9 +144,39 @@ async function fetchRecipes(yourVit,Eat,Country) {
 
         //I want only title and image 
         const simplifiedRecipes = data.results.map(recipe=>({
+            id:recipe.id,
             title: recipe.title,
             image: recipe.image
         }));
+
+        //right description and left photo
+        
+        simplifiedRecipes.forEach(recipe =>{
+
+            //create div1 
+            const divN = document.createElement("div")
+            divN.classList.add("row")
+            
+            
+            //create element h2
+            const titleh2 = document.createElement("a");
+            titleh2.textContent= recipe.title;
+            
+
+            //add imagine
+            const titleImg = document.createElement("Img");
+            titleImg.src= recipe.image;
+            titleImg.alt = recipe.title;
+            titleImg.style.width = "130px";
+
+            //append
+            
+            divN.appendChild(titleh2);
+            divN.appendChild(titleImg);
+            tableDiv.appendChild(divN);
+        })
+
+
 
         console.log("Ricette semplificate:", simplifiedRecipes);
 
