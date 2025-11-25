@@ -1,5 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+//sito API gratuite 
 
+
+    
+
+    const apiKey = "4c81b3bd660d4066822b58868f0fc0b1";
     const vitB = document.getElementById("vitB");
     const subB = document.getElementById("subB");
 
@@ -7,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //three variable that I have to use
             let yourVit = null;
             let Eat= null;
-            let Country = null;
+            let Country = "";
 
 
     const dropdownVit = document.querySelector('.dropdown-menu-css');
@@ -18,6 +22,52 @@ document.addEventListener("DOMContentLoaded", () => {
     //find id to collocate the table
     const tableDiv= document.getElementById("tableDiv");
 
+    const vitaminFoods = {
+        "A": ["carrots", "pumpkins", "apricots", "sweet potatoes", "melons", "spinach", "kale"],
+        "B":["whole grains", "beans", "nuts", "porks",],
+        "B1": ["whole grains", "beans", "nuts", "porks","milks", "almonds", "eggs", "yogurts","spinach", "asparagus", "broccolis", "avocados", "lentils","meats", "fish", "peanuts"],
+        "B2": ["milks", "almonds", "eggs", "yogurts"],
+        "B3": ["meats", "fish", "peanuts"],
+        "B5": ["mushrooms", "avocados", "eggs", "chickens"],
+        "B6": ["bananas", "potatoes", "chickpeas"],
+        "B9": ["spinach", "asparagus", "broccolis", "avocados", "lentils"],
+        "B12": ["eggs", "milks", "cheeses", "meats", "fish"],
+        "C": ["oranges", "lemons", "strawberries", "kiwis", "bell peppers"],
+        "D": ["salmons", "mackerels", "egg yolks", "mushrooms"], 
+        "E": ["sunflower oils", "almonds", "hazelnuts", "seeds"],
+        "K": ["spinach", "kale", "broccolis", "lettuces", "cabbages"]
+    
+};
+
+
+function removeVit(){
+    const existingVith = document.getElementById("Vith")
+            if(existingVith ){
+                existingVith.remove()
+            }
+}
+
+function removeEat(){
+    const existingEat = document.getElementById("Eath")
+        if(existingEat){
+            existingEat.remove();
+        }
+}
+
+function removeCountry(){
+    const existingCountry  = document.getElementById("Countryh")
+        if(existingCountry){
+            existingCountry.remove();
+        }
+}
+
+function removeSubmitBtt(){
+    const existingbutSubmit = document.getElementById("submit");
+    if(existingbutSubmit){
+        existingbutSubmit.remove();
+    }
+
+}
 
 
 
@@ -28,6 +78,121 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+    // Funzione per cercare ricette su Spoonacular
+// vitamin = es. "A", meal = es. "lunch", country = es. "Italian"
+/* "dishTypes": [
+        "lunch",
+        "main course",
+        "main dish",
+        "dinner"
+    ],*/
+//cuisine= "Italian"
+
+//if it is A you trasform it in a list of food
+
+
+async function fetchRecipes(yourVit,Eat,Country) {
+    try {
+
+        const ingredientsArray = vitaminFoods[yourVit]; // ex A: ["carrot", "pumpkin", ...]
+        // Costruisci la query concatenando i parametri
+        //only one random
+        const randomIngredient = ingredientsArray[Math.floor(Math.random() * ingredientsArray.length)];
+        const ingredientsQuery= randomIngredient;
+        console.log("Ingrediente a caso", ingredientsQuery);
+        
+        /*const ingredientsQuery = ingredientsArray.join(",");
+        console.log("La lista igredienti è:" + ingredientsQuery)*/
+        if (Country === "Italia") {
+            Country = "Italian";
+        } else if (Country === "") {
+            Country = "";
+        } else if (Country === "Spagna") {
+            Country = "Spanish";
+        }else if (Country === "Francia") {
+            Country = "French";
+        }
+        console.log("Paese convertito:", Country);
+
+        if(Eat=="Colazione"){
+            Eat ="breakfast"
+        }
+        else if(Eat=="Pranzo" || Eat=="Cena"){
+            Eat ="main course"
+        }
+        else if(Eat=="Spuntino"){
+            Eat ="snack"
+        }
+        console.log("Pasto convertito:", Eat)
+
+        // Qui puoi continuare a costruire l'URL della fetch usando ingredientsQuery e Country
+        // const url = `...`
+        const url = `https://api.spoonacular.com/recipes/complexSearch?` +
+                    `includeIngredients=${encodeURIComponent(ingredientsQuery)}` +
+                    `&type=${encodeURIComponent(Eat)}` +
+                    `&cuisine=${encodeURIComponent(Country)}` +
+                    `&number=7` +
+                    `&apiKey=${apiKey}`;
+
+        console.log("URL finale:", url);
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Errore API " + response.status);
+
+        const data = await response.json();
+        console.log("Risultati API:", data.results);
+
+        //I want only title and image 
+        const simplifiedRecipes = data.results.map(recipe=>({
+            title: recipe.title,
+            image: recipe.image
+        }));
+
+        console.log("Ricette semplificate:", simplifiedRecipes);
+
+        removeVit();
+        removeEat();
+        removeCountry();
+        removeSubmitBtt();
+
+        
+
+        return data.results;
+        
+
+
+    } catch (error) {
+        console.error("Errore nella conversione:", error);
+        return [];
+    }
+/*https://api.spoonacular.com/recipes/complexSearch?includeIngredients=carrots%&type=main%20course&cuisine=French&number=1&apiKey=4c81b3bd660d4066822b58868f0fc0b1
+*/
+
+}
+/*
+        // URL dell'API con query e API key
+        const url = `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(query)}&number=5&apiKey=${apiKey}`;
+
+        // Chiamata fetch
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Errore nella fetch: ${response.status}`);
+        }
+
+        // Converto la risposta in JSON
+        const data = await response.json();
+
+        // Log per vedere i risultati
+        console.log("Risultati Spoonacular:", data.results);
+
+        // Ritorna le ricette
+        return data.results;
+    } catch (error) {
+        console.error("Errore nella fetch:", error);
+        return []; // array vuoto in caso di errore
+    }
+}
+*/
 
 
     function checkSubmitReady(){
@@ -48,11 +213,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 jsDiv.appendChild(butSubmit);
 
                 //add event click
-                butSubmit.addEventListener("click", () => {
+                butSubmit.addEventListener("click",  async () => {
                 console.log("I valori selezionati sono:");
                 console.log("Vitamina:", yourVit);
                 console.log("Pasto:", Eat);
                 console.log("Paese:", Country);
+
+                //recall async function
+                const recipes = await fetchRecipes(yourVit,Eat,Country);
+                console.log("Ricette ottenute:", recipes);
+
+
+    /*
+     * Funzione per cercare ricette su Spoonacular
+     * @param {string} vitamin - es. "A"
+     * @param {string} meal - es. "lunch"
+     * @param {string} country - es. "Italian"
+     * @returns {Array} - array di ricette
+     */
+
+
+
             });
 
 
@@ -274,6 +455,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-});
 
 
+/*ricette esempio
+https://www.giallozafferano.it/ricerca-ricette/vitamina+b+e+c/    */ 
+
+
+//site free is spoonacular the api key account name api
