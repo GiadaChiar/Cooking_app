@@ -341,7 +341,43 @@ html,body {
         }
     }
 
+    //style output img and link 
 
+    #recipes{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+
+        .row{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px; 
+            margin-top: 5px;
+            
+        }
+        a{  color: vars.$color1;
+            text-decoration: underline;
+            &:hover{
+                color:rgb(123, 6, 6);
+            }
+        }
+
+        img{
+            width: 100%;
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+    
 
 
     

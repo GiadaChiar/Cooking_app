@@ -13,7 +13,6 @@
             let Eat= null;
             let Country = "";
 
-
     const dropdownVit = document.querySelector('.dropdown-menu-css');
     const dropdownEat = document.getElementById("dropEat");
     const dropdownCountry = document.getElementById("dropContry");
@@ -21,6 +20,7 @@
     const navWrite=document.getElementById("vitamine");
     //find id to collocate the table
     const tableDiv= document.getElementById("tableDiv");
+    const recipiesDiv= document.getElementById("recipes")
 
     const vitaminFoods = {
         "A": ["carrots", "pumpkins", "apricots", "sweet potatoes", "melons", "spinach", "kale"],
@@ -167,13 +167,12 @@ async function fetchRecipes(yourVit,Eat,Country) {
             const titleImg = document.createElement("Img");
             titleImg.src= recipe.image;
             titleImg.alt = recipe.title;
-            titleImg.style.width = "130px";
+    
 
             //append
-            
             divN.appendChild(titleh2);
             divN.appendChild(titleImg);
-            tableDiv.appendChild(divN);
+            recipiesDiv.appendChild(divN);
         })
 
 
