@@ -3,7 +3,7 @@
 
     
 
-    const apiKey = "a6e87a9ab488423db18d7496ebd7fa8d";
+    const apiKey = "cafa71e779ec411ab6e093dfb9d7f1a2";
     const vitB = document.getElementById("vitB");
     const subB = document.getElementById("subB");
 
@@ -109,7 +109,9 @@ async function fetchRecipes(yourVit,Eat,Country) {
             Country = "Italian";
         } else if (Country === "") {
             Country = "";
-        } else if (Country === "Spagna") {
+        } else if (Country === "Nessuno") {
+            Country = "";
+        }else if (Country === "Spagna") {
             Country = "Spanish";
         }else if (Country === "Francia") {
             Country = "French";
@@ -205,7 +207,11 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     
 
                     console.log("dettagli:"+ details)
-                    //get the informations 
+
+                    
+
+
+                    
                     const ingredients = details.extendedIngredients.map(i => i.original).join("<br>");
                     const divIngredient= document.createElement("div");
                     divIngredient.classList.add("ingredientClass");
@@ -281,9 +287,8 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     boxHover.innerHTML = "Errore nel catricamento dettagli"
                     boxHover.style.display="block";
                 }
-            }) ;
-        
-            //Create button x for extra detail 
+
+                //Create button x for extra detail 
 
             const deleteBt=document.createElement("button");
                 deleteBt.id = "delete_bt";
@@ -293,8 +298,7 @@ async function fetchRecipes(yourVit,Eat,Country) {
                 //append it to row div classs
                 divN.appendChild(deleteBt);
 
-
-              //if i click on the button every think also the button
+                 //if i click on the button every think also the button
                 deleteBt.addEventListener("click",()=>{
                     const existngSummary= document.getElementById("summary");
                     const exIngredient= document.getElementById("ingredientClass");
@@ -312,6 +316,11 @@ async function fetchRecipes(yourVit,Eat,Country) {
                 }
                 deleteBt.remove();
                 })
+            }) ;
+        
+            
+
+            
         });
 
 

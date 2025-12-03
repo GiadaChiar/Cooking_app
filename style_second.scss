@@ -152,12 +152,17 @@ html,body {
                 rgb(220, 88, 88),rgb(238, 238, 44),rgb(220, 88, 88)
             );
             text-align: center;
-            margin-bottom:-10px;
+            
             &:hover{
                 background: linear-gradient(
                 rgb(135, 12, 12),rgb(222, 222, 9),rgb(135, 12, 12)
             );
             }
+        }
+        #nessuno{
+            text-align: center;
+            background-color: #474444;
+            margin-bottom:-10px;
         }
 
         #col{
