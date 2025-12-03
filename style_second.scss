@@ -356,7 +356,7 @@ html,body {
             margin-top: 5px;
             
         }
-        a{  color: vars.$color1;
+        a{  color: vars.$color2;
             text-decoration: underline;
             &:hover{
                 color:rgb(123, 6, 6);
@@ -369,9 +369,14 @@ html,body {
 
 
 
+    }
 
+    #recipes{
+        background-color: vars.$color1;
+        color: vars.$color2;
 
     }
+
 
 
 

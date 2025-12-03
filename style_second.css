@@ -304,7 +304,7 @@ html #recipes .row, body #recipes .row {
   margin-top: 5px;
 }
 html #recipes a, body #recipes a {
-  color: #fff;
+  color: rgb(37, 33, 33);
   text-decoration: underline;
 }
 html #recipes a:hover, body #recipes a:hover {
@@ -312,4 +312,8 @@ html #recipes a:hover, body #recipes a:hover {
 }
 html #recipes img, body #recipes img {
   width: 100%;
+}
+html #recipes, body #recipes {
+  background-color: #fff;
+  color: rgb(37, 33, 33);
 }/*# sourceMappingURL=style_second.css.map */

@@ -3,7 +3,7 @@
 
     
 
-    const apiKey = "4c81b3bd660d4066822b58868f0fc0b1";
+    const apiKey = "586e81fcaa0c436ca1d9780a0e95491d";
     const vitB = document.getElementById("vitB");
     const subB = document.getElementById("subB");
 
@@ -90,6 +90,8 @@ function removeSubmitBtt(){
 
 //if it is A you trasform it in a list of food
 
+let details = {};
+
 
 async function fetchRecipes(yourVit,Eat,Country) {
     try {
@@ -131,7 +133,7 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     `includeIngredients=${encodeURIComponent(ingredientsQuery)}` +
                     `&type=${encodeURIComponent(Eat)}` +
                     `&cuisine=${encodeURIComponent(Country)}` +
-                    `&number=7` +
+                    `&number=1` +
                     `&apiKey=${apiKey}`;
 
         console.log("URL finale:", url);
@@ -161,19 +163,126 @@ async function fetchRecipes(yourVit,Eat,Country) {
             //create element h2
             const titleh2 = document.createElement("a");
             titleh2.textContent= recipe.title;
+            titleh2.id= recipe.id;
             
 
             //add imagine
             const titleImg = document.createElement("Img");
+            titleImg.id= recipe.id;
             titleImg.src= recipe.image;
             titleImg.alt = recipe.title;
+
+            //box to show etra info i8f you pass over with mouse
+            const boxHover= document.createElement("div");
+            boxHover.classList.add("hover_info");
+            boxHover.style.display= "none"//not show 
     
 
             //append
             divN.appendChild(titleh2);
             divN.appendChild(titleImg);
+            divN.appendChild(boxHover);
             recipiesDiv.appendChild(divN);
-        })
+
+
+            //if I pass hover I want to show the recipes time and element in it
+            titleh2.addEventListener("click",async ()=>{
+                //I get id
+                const recipeId = titleh2.id;
+                console.log("Id immagine = " + recipeId)
+
+                //Request for time and recipes
+
+
+                
+                const datailUrl= `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`;
+                console.log("la fetch ingredienti : " + datailUrl)
+                
+                try{
+                    const response = await fetch(datailUrl);
+                    const details = await response.json(); // I want it in json
+                    console.log(details);
+                    
+
+                    console.log("dettagli:"+ details)
+                    //get the informations 
+                    const ingredients = details.extendedIngredients.map(i => i.original).join("<br>");
+                    const divIngredient= document.createElement("div");
+                    divIngredient.classList.add("ingredientClass");
+                    const ulIngredients = document.createElement("ul");
+                    const titleIngredient= document.createElement("h4");
+                    titleIngredient.textContent="Lista ingredienti:"
+
+                    //create a point list foreach ingredient
+                    details.extendedIngredients.forEach(i => {
+                        const li = document.createElement("li");
+                        li.textContent = i.original; 
+                        ulIngredients.appendChild(li);    
+
+                    })
+
+                    const divSummary= document.createElement("div");
+                    divSummary.classList.add("summary");
+
+                    const timeText = document.createElement("h4");
+                    timeText.textContent = "Tempo : " + details.readyInMinutes +" minuti"
+
+                    const cuisineText = document.createElement("h4");
+                    //if it is empty "international"
+                    if(!details.cuisines || details.cuisines.length === 0){
+                        cuisineText.textContent= "Piatto internazionale"
+                    }
+                    else{
+                        cuisineText.textContent= "Piatto " + details.cuisines
+                    }
+                    
+                    const healthText = document.createElement("h4");
+                    if(!details.healthScore || details.healthScore === 0){
+                        healthText.textContent= "Percentuale salutare non disponibile"
+                    }
+                    else{
+                        healthText.textContent= "Piatto salutare al " + details.healthScore + " %"
+                    }
+                    
+
+                    const divPreparation = document.createElement("div");
+                    divPreparation.classList.add("prep");
+
+                    const titlePrep= document.createElement("h4");
+                    titlePrep.textContent="Procedimento:"
+
+                    const prepText= document.createElement("p");
+                    prepText.innerHTML = details.instructions || "Procedimento non disponibile";
+                    
+
+                    //append
+                    recipiesDiv.appendChild(divSummary);
+                    divSummary.appendChild(timeText);
+                    divSummary.appendChild(cuisineText);
+                    divSummary.appendChild(healthText);
+                    recipiesDiv.appendChild(divIngredient);
+                    divIngredient.appendChild(titleIngredient);
+                    divIngredient.appendChild(ulIngredients);
+                    recipiesDiv.appendChild(divPreparation);
+                    divPreparation.appendChild(titlePrep);
+                    divPreparation.appendChild(prepText);
+                    
+
+
+                    boxHover.style.display ="block";
+                }
+                catch(error){
+                    boxHover.innerHTML = "Errore nel catricamento dettagli"
+                    boxHover.style.display="block";
+                }
+            }) ;
+/*
+            //when mouse over the image hidden div
+            titleImg.addEventListener("mouseleave",()=>{
+                boxHover.style.display="none";
+            });*/
+
+        });
 
 
 
@@ -198,30 +307,7 @@ async function fetchRecipes(yourVit,Eat,Country) {
 */
 
 }
-/*
-        // URL dell'API con query e API key
-        const url = `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(query)}&number=5&apiKey=${apiKey}`;
 
-        // Chiamata fetch
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Errore nella fetch: ${response.status}`);
-        }
-
-        // Converto la risposta in JSON
-        const data = await response.json();
-
-        // Log per vedere i risultati
-        console.log("Risultati Spoonacular:", data.results);
-
-        // Ritorna le ricette
-        return data.results;
-    } catch (error) {
-        console.error("Errore nella fetch:", error);
-        return []; // array vuoto in caso di errore
-    }
-}
-*/
 
 
     function checkSubmitReady(){
