@@ -3,7 +3,7 @@
 
     
 
-    const apiKey = "717a9623ca4b4dcc8e3cb553c7cf72aa";
+    const apiKey = "a6e87a9ab488423db18d7496ebd7fa8d";
     const vitB = document.getElementById("vitB");
     const subB = document.getElementById("subB");
 
@@ -133,7 +133,7 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     `includeIngredients=${encodeURIComponent(ingredientsQuery)}` +
                     `&type=${encodeURIComponent(Eat)}` +
                     `&cuisine=${encodeURIComponent(Country)}` +
-                    `&number=1` +
+                    `&number=2` +
                     `&apiKey=${apiKey}`;
 
         console.log("URL finale:", url);
@@ -258,17 +258,20 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     prepText.innerHTML = details.instructions || "Procedimento non disponibile";
                     
 
-                    //append
-                    recipiesDiv.appendChild(divSummary);
+                    
+
+                    //append under afterend
+                    
+                    divN.insertAdjacentElement("afterend", divPreparation);
+                    divPreparation.appendChild(titlePrep);
+                    divPreparation.appendChild(prepText);
+                    divN.insertAdjacentElement("afterend", divIngredient);
+                    divIngredient.appendChild(titleIngredient);
+                    divIngredient.appendChild(ulIngredients);
+                    divN.insertAdjacentElement("afterend", divSummary);
                     divSummary.appendChild(timeText);
                     divSummary.appendChild(cuisineText);
                     divSummary.appendChild(healthText);
-                    recipiesDiv.appendChild(divIngredient);
-                    divIngredient.appendChild(titleIngredient);
-                    divIngredient.appendChild(ulIngredients);
-                    recipiesDiv.appendChild(divPreparation);
-                    divPreparation.appendChild(titlePrep);
-                    divPreparation.appendChild(prepText);
                     
 
 
