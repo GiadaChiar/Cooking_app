@@ -364,6 +364,10 @@ html #recipes .row .hover_info, body #recipes .row .hover_info {
   border-top: 1px solid #ddd;
   border-radius: 5px;
 }
+html #recipes .summary, body #recipes .summary {
+  display: flex;
+  flex-direction: column;
+}
 html #recipes .summary h4, body #recipes .summary h4 {
   font-size: 1rem;
 }

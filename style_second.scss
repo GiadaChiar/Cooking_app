@@ -414,6 +414,8 @@ html,body {
 
 }
 .summary{
+    display: flex;
+    flex-direction: column;
     h4{
         font-size: vars.$font-size6;
         &:last-child {

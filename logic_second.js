@@ -3,7 +3,7 @@
 
     
 
-    const apiKey = "586e81fcaa0c436ca1d9780a0e95491d";
+    const apiKey = "9a48ed25a30a432e8fce4d671665010f";
     const vitB = document.getElementById("vitB");
     const subB = document.getElementById("subB");
 
