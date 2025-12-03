@@ -7,6 +7,38 @@ html, body {
   background-repeat: no-repeat;
   /* mostra menu principale al hover */
   /* mostra submenu al hover */
+  /*
+      #recipes{
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 4fr));
+          gap: 20px;
+          background-color: vars.$color1;
+          color: vars.$color2;
+
+          .row{
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 10px; 
+              margin-top: 5px;
+
+          }
+          a{  color: vars.$color2;
+              text-decoration: underline;
+              font-size: vars.$font-size3;
+              &:hover{
+                  color:rgb(123, 6, 6);
+              }
+          }
+
+          img{
+              width: 50%;
+          }
+              */
+  /* Contenitore principale griglia */
+  /* Info generali */
+  /* Lista ingredienti */
+  /* Media query per affiancare titolo e immagine su desktop */
 }
 html #vitamine:hover, body #vitamine:hover {
   text-decoration: underline;
@@ -295,25 +327,93 @@ html #recipes, body #recipes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  background-color: #f0f0f0; /* cambia con vars.$color1 se SCSS */
+  color: #000; /* cambia con vars.$color2 */
+  padding: 20px;
+  margin-top: 20px;
 }
 html #recipes .row, body #recipes .row {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column; /* default verticale per mobile */
+  background-color: #fff;
+  border-radius: 8px;
   padding: 10px;
-  margin-top: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
-html #recipes a, body #recipes a {
+html #recipes .row a, body #recipes .row a {
   color: rgb(37, 33, 33);
   text-decoration: underline;
+  font-size: 1.5rem;
 }
-html #recipes a:hover, body #recipes a:hover {
-  color: rgb(123, 6, 6);
+html #recipes .row a:hover, body #recipes .row a:hover {
+  color: rgb(55, 6, 123);
 }
-html #recipes img, body #recipes img {
+html #recipes .row img, body #recipes .row img {
   width: 100%;
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
-html #recipes, body #recipes {
-  background-color: #fff;
-  color: rgb(37, 33, 33);
+html #recipes .row .hover_info, body #recipes .row .hover_info {
+  display: none;
+  padding: 10px;
+  background-color: #fafafa;
+  border-top: 1px solid #ddd;
+  border-radius: 5px;
+}
+html #recipes .summary h4, body #recipes .summary h4 {
+  font-size: 1rem;
+}
+html #recipes .summary h4:last-child, body #recipes .summary h4:last-child {
+  margin-bottom: 20px;
+}
+html #recipes .row:hover, body #recipes .row:hover {
+  transform: translateY(-5px);
+}
+html .summary, html .ingredientClass, html .prep, body .summary, body .ingredientClass, body .prep {
+  margin-bottom: 10px;
+}
+html .summary h4, html .ingredientClass h4, html .prep h4, body .summary h4, body .ingredientClass h4, body .prep h4 {
+  margin-bottom: 5px;
+}
+html .ingredientClass ul, body .ingredientClass ul {
+  padding-left: 20px;
+}
+html .ingredientClass ul:last-child, body .ingredientClass ul:last-child {
+  margin-bottom: 20px;
+}
+html .ingredientClass li, body .ingredientClass li {
+  margin-bottom: 3px;
+}
+html .prep ol > li, body .prep ol > li {
+  margin-bottom: 3px;
+}
+@media (min-width: 600px) {
+  html #recipes .row, body #recipes .row {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  html #recipes .row a, body #recipes .row a {
+    flex: 1 1 45%;
+    margin-bottom: 0;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  html #recipes .row img, body #recipes .row img {
+    flex: 1 1 45%;
+    margin-left: 10px;
+    margin-bottom: 0;
+  }
+  html #recipes .summary, body #recipes .summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  html #recipes .summary h4, body #recipes .summary h4 {
+    font-size: 1.5rem;
+  }
 }/*# sourceMappingURL=style_second.css.map */

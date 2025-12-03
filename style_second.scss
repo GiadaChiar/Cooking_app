@@ -342,11 +342,13 @@ html,body {
     }
 
     //style output img and link 
-
+/*
     #recipes{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 4fr));
         gap: 20px;
+        background-color: vars.$color1;
+        color: vars.$color2;
 
         .row{
             display: flex;
@@ -358,37 +360,154 @@ html,body {
         }
         a{  color: vars.$color2;
             text-decoration: underline;
+            font-size: vars.$font-size3;
             &:hover{
                 color:rgb(123, 6, 6);
             }
         }
 
         img{
-            width: 100%;
+            width: 50%;
         }
+            */
+        /* Contenitore principale griglia */
+#recipes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    background-color: #f0f0f0; /* cambia con vars.$color1 se SCSS */
+    color: #000; /* cambia con vars.$color2 */
+    padding: 20px;
+    margin-top: 20px;
 
-
-
-    }
-
-    #recipes{
-        background-color: vars.$color1;
+    .row {
+    display: flex;
+    flex-direction: column; /* default verticale per mobile */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    a{
         color: vars.$color2;
-
+        text-decoration: underline;
+        font-size: vars.$font-size4;
+        &:hover{
+            color:rgb(55, 6, 123);
+        }
     }
 
-
-
-
-
-
-    
-
-
-    
-    
+    img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.hover_info {
+    display: none;
+    padding: 10px;
+    background-color: #fafafa;
+    border-top: 1px solid #ddd;
+    border-radius: 5px;
+}
 
 }
+.summary{
+    h4{
+        font-size: vars.$font-size6;
+        &:last-child {
+            margin-bottom: 20px;
+        }
+    }
+}
+}
+
+
+#recipes .row:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Info generali */
+.summary, .ingredientClass, .prep {
+    margin-bottom: 10px;
+}
+
+.summary h4, .ingredientClass h4, .prep h4 {
+    margin-bottom: 5px;
+}
+
+/* Lista ingredienti */
+.ingredientClass ul {
+    padding-left: 20px;
+    &:last-child{
+        margin-bottom: 20px;
+    }
+}
+
+.ingredientClass li {
+    margin-bottom: 3px;
+}
+
+.prep{
+    ol>li{
+        margin-bottom: 3px;
+    }
+}
+
+/* Media query per affiancare titolo e immagine su desktop */
+@media (min-width: 600px) {
+    #recipes{
+        .row {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-around;
+            a {
+                flex: 1 1 45%;
+                margin-bottom: 0;
+                font-size: vars.$font-size3;
+                text-align: center;
+            }
+            img {
+                flex: 1 1 45%;
+                margin-left: 10px;
+                margin-bottom: 0;
+            }
+        }
+        .summary{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h4{
+                font-size: vars.$font-size4;
+            }
+        }
+        
+    }
+
+}
+}
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+    
+    
+
+
 
             
 
