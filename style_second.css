@@ -340,6 +340,13 @@ html #recipes .row, body #recipes .row {
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  position: relative;
+}
+html #recipes .row #delete_bt, body #recipes .row #delete_bt {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 9999;
 }
 html #recipes .row a, body #recipes .row a {
   color: rgb(37, 33, 33);

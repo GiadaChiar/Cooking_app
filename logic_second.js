@@ -3,7 +3,7 @@
 
     
 
-    const apiKey = "9a48ed25a30a432e8fce4d671665010f";
+    const apiKey = "717a9623ca4b4dcc8e3cb553c7cf72aa";
     const vitB = document.getElementById("vitB");
     const subB = document.getElementById("subB");
 
@@ -90,7 +90,7 @@ function removeSubmitBtt(){
 
 //if it is A you trasform it in a list of food
 
-let details = {};
+
 
 
 async function fetchRecipes(yourVit,Eat,Country) {
@@ -209,6 +209,7 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     const ingredients = details.extendedIngredients.map(i => i.original).join("<br>");
                     const divIngredient= document.createElement("div");
                     divIngredient.classList.add("ingredientClass");
+                    divIngredient.id=("ingredientClass");
                     const ulIngredients = document.createElement("ul");
                     const titleIngredient= document.createElement("h4");
                     titleIngredient.textContent="Lista ingredienti:"
@@ -223,6 +224,7 @@ async function fetchRecipes(yourVit,Eat,Country) {
 
                     const divSummary= document.createElement("div");
                     divSummary.classList.add("summary");
+                    divSummary.id=("summary")
 
                     const timeText = document.createElement("h4");
                     timeText.textContent = "Tempo : " + details.readyInMinutes +" minuti"
@@ -247,6 +249,7 @@ async function fetchRecipes(yourVit,Eat,Country) {
 
                     const divPreparation = document.createElement("div");
                     divPreparation.classList.add("prep");
+                    divPreparation.id=("prep");
 
                     const titlePrep= document.createElement("h4");
                     titlePrep.textContent="Procedimento:"
@@ -276,12 +279,36 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     boxHover.style.display="block";
                 }
             }) ;
-/*
-            //when mouse over the image hidden div
-            titleImg.addEventListener("mouseleave",()=>{
-                boxHover.style.display="none";
-            });*/
+        
+            //Create button x for extra detail 
 
+            const deleteBt=document.createElement("button");
+                deleteBt.id = "delete_bt";
+                deleteBt.type = "button";
+                deleteBt.classList.add("btn-close");
+                deleteBt.setAttribute("aria-label", "Close");
+                //append it to row div classs
+                divN.appendChild(deleteBt);
+
+
+              //if i click on the button every think also the button
+                deleteBt.addEventListener("click",()=>{
+                    const existngSummary= document.getElementById("summary");
+                    const exIngredient= document.getElementById("ingredientClass");
+                    const existnPreparation= document.getElementById("prep");
+
+                    //delete table
+                if(existngSummary){
+                    existngSummary.remove();
+                }
+                if(exIngredient){
+                    exIngredient.remove();
+                }
+                if(existnPreparation){
+                    existnPreparation.remove();
+                }
+                deleteBt.remove();
+                })
         });
 
 
@@ -339,13 +366,6 @@ async function fetchRecipes(yourVit,Eat,Country) {
                 console.log("Ricette ottenute:", recipes);
 
 
-    /*
-     * Funzione per cercare ricette su Spoonacular
-     * @param {string} vitamin - es. "A"
-     * @param {string} meal - es. "lunch"
-     * @param {string} country - es. "Italian"
-     * @returns {Array} - array di ricette
-     */
 
 
 
@@ -395,7 +415,6 @@ async function fetchRecipes(yourVit,Eat,Country) {
 
                 //create button delete x
                 const deleteBt=document.createElement("button");
-                deleteBt.id= "delete_bt"
                 deleteBt.id = "delete_bt";
                 deleteBt.type = "button";
                 deleteBt.classList.add("btn-close");
