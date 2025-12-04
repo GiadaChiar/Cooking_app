@@ -485,6 +485,24 @@ async function fetchRecipes(yourVit,Eat,Country) {
                 //append table to its div
                 tableDiv.appendChild(Mytable);
                 Mytable.appendChild(deleteBt);
+                //check language
+                if(selectLanguage.value==="fr"){
+                texth5.textContent="Navigue";
+                texthome.textContent="Menu";
+                textsearch.textContent="Cherche";
+
+            }else if(selectLanguage.value==="it"){
+                texth5.textContent="Naviga";
+                texthome.textContent="Menu";
+                textsearch.textContent="Cerca";
+
+            }else if(selectLanguage.value==="en"){
+                texth5.textContent="Navigate";
+                texthome.textContent="Home";
+                textsearch.textContent="Search";
+
+    }
+
                 navWrite.textContent="Vitamine -"
         }
         else{

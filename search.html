@@ -11,41 +11,48 @@
     <header>
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"id="vitamine">Le vitamine+</a>
+            <a class="navbar-brand" href="#" id="vitamine" data-translate="vitamine">Le vitamine+</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
                 aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
                 aria-labelledby="offcanvasDarkNavbarLabel">
+
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Naviga</h5>
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" data-translate="naviga">Naviga</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
+
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" id="home" href="index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" id="home" href="index.html" data-translate="home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disable" aria-current="page" id="search" href="#">Search</a>
+                            <a class="nav-link disable" aria-current="page" id="search" href="#" data-translate="search">Search</a>
                         </li>
                     </ul>
-                <select id="langSelect">
-                    <option value="it">Italiano</option>
-                    <option value="fr">Francese</option>
-                    <option value="en">Inglese</option>
-                </select>
 
+                    <select id="langSelect">
+                        <option value="it">Italiano</option>
+                        <option value="fr">Francese</option>
+                        <option value="en">Inglese</option>
+                    </select>
+
+                </div>
             </div>
-                
         </div>
     </nav>
     </header>
+
     <div id="container">
-        <div class="btn-group dropdown-css" >
-            <button class="btn btn-secondary btn-sm">Vitamina</button>
+        <div class="btn-group dropdown-css">
+            <button class="btn btn-secondary btn-sm" data-translate="vitamina">Vitamina</button>
+
             <ul class="dropdown-menu-css">
                 <li><a class="dropdown-item" href="#" id="vitA">A</a></li>
                 <li class="dropdown-submenu">
@@ -70,77 +77,34 @@
 
         <div class="btn-group" id="drop_eat">
             <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Pasto
-            </button>
+                aria-expanded="false" data-translate="pasto">Pasto</button>
+
             <ul class="dropdown-menu" id="dropEat">
-                <li><a class="dropdown-item" href="#" id="col">Colazione</a></li>
-                <li><a class="dropdown-item" href="#" id="pr">Pranzo</a></li>
-                <li><a class="dropdown-item" href="#" id="sp">Spuntino</a></li>
-                <li><a class="dropdown-item" href="#" id="cen">Cena</a></li>
+                <li><a class="dropdown-item" href="#" id="col" data-translate="colazione">Colazione</a></li>
+                <li><a class="dropdown-item" href="#" id="pr" data-translate="pranzo">Pranzo</a></li>
+                <li><a class="dropdown-item" href="#" id="sp" data-translate="spuntino">Spuntino</a></li>
+                <li><a class="dropdown-item" href="#" id="cen" data-translate="cena">Cena</a></li>
             </ul>
         </div>
-
 
         <div class="btn-group" id="drop_nat">
             <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Paese
-            </button>
+                aria-expanded="false" data-translate="paese">Paese</button>
+
             <ul class="dropdown-menu" id="dropContry">
-                <li><a class="dropdown-item" href="#" id="italia">Italia</a></li>
-                <li><a class="dropdown-item" href="#" id="francia">Francia</a></li>
-                <li><a class="dropdown-item" href="#" id="spagna">Spagna</a></li>
-                <li><a class="dropdown-item" href="#" id="nessuno">Nessuno</a></li>
+                <li><a class="dropdown-item" href="#" id="italia" data-translate="italia">Italia</a></li>
+                <li><a class="dropdown-item" href="#" id="francia" data-translate="francia">Francia</a></li>
+                <li><a class="dropdown-item" href="#" id="spagna" data-translate="spagna">Spagna</a></li>
+                <li><a class="dropdown-item" href="#" id="nessuno" data-translate="nessuno">Nessuno</a></li>
             </ul>
         </div>
+    </div>
 
-    
-</div>
-<div id="tableDiv">
+    <div id="tableDiv"></div>
+    <div id="recipes"></div>
 
-</div>
-
-<div id="recipes">
-    <!-- Esempio statico, cancella quando usi fetch -->
-    <!--<div class="row">
-        <a id="12345">Moussaka</a>
-        <img id="12345" src="https://spoonacular.com/recipeImages/12345-312x231.jpg" alt="Moussaka">
-        <div class="hover_info" style="display:block;">
-            <div class="summary">
-                <h4>Tempo: 60 minuti</h4>
-                <h4>Piatto internazionale</h4>
-                <h4>Piatto salutare al 70%</h4>
-            </div>
-            <div class="ingredientClass">
-                <h4>Lista ingredienti:</h4>
-                <ul>
-                    <li>Melanzane</li>
-                    <li>Carne macinata</li>
-                    <li>Pomodoro</li>
-                    <li>Besciamella</li>
-                    <li>Formaggio feta</li>
-                </ul>
-            </div>
-            <div class="prep">
-                <h4>Procedimento:</h4>
-                <ol>
-                    <li>Sprinkle the eggplant slices with salt and let stand 45 minutes.</li>
-                    <li>Brush slices with olive oil and bake in grill pan.</li>
-                    <li>Prepare the meat sauce sautéing onions and adding ground beef.</li>
-                    <li>Add tomatoes, spices, and simmer briefly.</li>
-                    <li>Prepare béchamel sauce, whisk in egg yolks.</li>
-                    <li>Assemble layers with eggplant, meat sauce, feta, and top with béchamel.</li>
-                    <li>Bake at 180C for 1 hour, let set before serving.</li>
-                </ol>
-            </div>
-        </div>
-    </div>--> 
-</div>
-    
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script src="logic_second.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="logic_second.js"></script>
+    <script src="lang_second.js"></script>
 </body>
 </html>
