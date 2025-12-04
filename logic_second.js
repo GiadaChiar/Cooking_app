@@ -134,6 +134,8 @@ const translations = {
 
 
 //same langiage to first page or italian default
+    
+    const apiKey = "13cc17b8236f4f35a793846b89223cfd";
     const chosenLang = localStorage.getItem("lang") || "it"; 
     const texth5 = document.getElementById("offcanvasDarkNavbarLabel");
     const texthome = document.getElementById("home");
@@ -144,7 +146,6 @@ const translations = {
 
 
 
-    const apiKey = "6f603385318c4ff681a8a3bb416cf297";
     const vitB = document.getElementById("vitB");
     const subB = document.getElementById("subB");
 
@@ -179,6 +180,27 @@ const translations = {
         "K": ["spinach", "kale", "broccolis", "lettuces", "cabbages"]
     
 };
+
+
+//function to call python process for traslation not here, in front-end
+//fetch to communicate with js back-end
+
+async function translateWithPython(text) {
+    try {
+        const response = await fetch("http://localhost:3000/translate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text }),
+        });
+
+        const data = await response.json();
+        return data.translated;
+    } catch (error) {
+        console.error("Errore nella conversione:", error);
+        return text; // fallback: testo originale
+    }
+}
+
 
 
 function removeVit(){
@@ -288,11 +310,29 @@ async function fetchRecipes(yourVit,Eat,Country) {
         console.log("Risultati API:", data.results);
 
         //I want only title and image 
+        /*
         const simplifiedRecipes = data.results.map(recipe=>({
             id:recipe.id,
             title: recipe.title,
             image: recipe.image
         }));
+
+        */
+
+    const simplifiedRecipes = [];
+
+    for (const recipe of data.results) {
+        const translatedTitle = await translateWithPython(recipe.title);
+
+        simplifiedRecipes.push({
+            id: recipe.id,
+            title: translatedTitle,
+            image: recipe.image
+        });
+    }
+
+    console.log("Ricette tradotte:", simplifiedRecipes);
+
 
         //right description and left photo
         
