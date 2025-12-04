@@ -144,7 +144,7 @@ const translations = {
 
 
 
-    const apiKey = "3cc0742200634fc99730107d372a7c2a";
+    const apiKey = "6f603385318c4ff681a8a3bb416cf297";
     const vitB = document.getElementById("vitB");
     const subB = document.getElementById("subB");
 
@@ -276,7 +276,7 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     `includeIngredients=${encodeURIComponent(ingredientsQuery)}` +
                     `&type=${encodeURIComponent(Eat)}` +
                     `&cuisine=${encodeURIComponent(Country)}` +
-                    `&number=2` +
+                    `&number=1` +
                     `&apiKey=${apiKey}`;
 
         console.log("URL finale:", url);
@@ -359,7 +359,16 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     divIngredient.id=("ingredientClass");
                     const ulIngredients = document.createElement("ul");
                     const titleIngredient= document.createElement("h4");
-                    titleIngredient.textContent="Lista ingredienti:"
+                    if(chosenLang==="it"){
+                        titleIngredient.textContent="Lista ingredienti:"
+                    }else if(chosenLang==="en"){
+                        titleIngredient.textContent="Ingredient list:"
+                    }else if(chosenLang==="fr"){
+                        titleIngredient.textContent="Liste des ingrédients:"
+                    }
+                    
+                    
+                    
 
                     //create a point list foreach ingredient
                     details.extendedIngredients.forEach(i => {
@@ -374,23 +383,57 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     divSummary.id=("summary")
 
                     const timeText = document.createElement("h4");
-                    timeText.textContent = "Tempo : " + details.readyInMinutes +" minuti"
+                    if(chosenLang==="it"){
+                        timeText.textContent = "Tempo : " + details.readyInMinutes +" minuti"
+                    }if(chosenLang==="en"){
+                        timeText.textContent = "Time : " + details.readyInMinutes +" minutes"
+                    }if(chosenLang==="fr"){
+                        timeText.textContent = "Temps : " + details.readyInMinutes +" minutes"
+                    }
+            
 
                     const cuisineText = document.createElement("h4");
                     //if it is empty "international"
                     if(!details.cuisines || details.cuisines.length === 0){
-                        cuisineText.textContent= "Piatto internazionale"
+                        if(chosenLang==="it"){
+                            cuisineText.textContent= "Piatto internazionale"
+                        } else if(chosenLang==="en"){
+                            cuisineText.textContent= "International dish"
+                        }else if(chosenLang==="fr"){
+                            cuisineText.textContent= "Plat international"
+                        }
+                        
                     }
                     else{
-                        cuisineText.textContent= "Piatto " + details.cuisines
+                        if(chosenLang==="it"){
+                            cuisineText.textContent= "Piatto " + details.cuisines
+                        } else if(chosenLang==="en"){
+                            cuisineText.textContent= "Dish " + details.cuisines
+                        }else if(chosenLang==="fr"){
+                            cuisineText.textContent= "Plat " + details.cuisines
+                        }
+                        
                     }
                     
                     const healthText = document.createElement("h4");
                     if(!details.healthScore || details.healthScore === 0){
-                        healthText.textContent= "Percentuale salutare non disponibile"
+                        if(chosenLang==="it"){
+                            healthText.textContent= "Percentuale salutare non disponibile"
+                        } else if(chosenLang==="en"){
+                            healthText.textContent= "Healthy percentage not available"
+                        }else if(chosenLang==="fr"){
+                            healthText.textContent= "Pourcentage sain non disponible"
+                        }
+                        
                     }
                     else{
-                        healthText.textContent= "Piatto salutare al " + details.healthScore + " %"
+                        if(chosenLang==="it"){
+                            healthText.textContent= "Piatto salutare al " + details.healthScore + " %"
+                        }else if(chosenLang==="en"){
+                            healthText.textContent= "Healthy dish at " + details.healthScore + " %"
+                        }else if(chosenLang==="fr"){
+                            healthText.textContent= "Plat sain à " + details.healthScore + " %"
+                        } 
                     }
                     
 
@@ -399,7 +442,16 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     divPreparation.id=("prep");
 
                     const titlePrep= document.createElement("h4");
-                    titlePrep.textContent="Procedimento:"
+                    if(chosenLang==="it"){
+                        titlePrep.textContent="Procedimento:"
+                    }else if(chosenLang==="en"){
+                        titlePrep.textContent="Procedure:"
+                    }else if(chosenLang==="fr"){
+                        titlePrep.textContent="Procédure:"
+                    }
+                    
+                    
+                    
 
                     const prepText= document.createElement("p");
                     prepText.innerHTML = details.instructions || "Procedimento non disponibile";
