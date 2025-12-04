@@ -1,9 +1,38 @@
-//sito API gratuite 
+//sito API gratuite https://spoonacular.com/food-api/console#Dashboard
+//lib to traslate everything in italian or other language
+    // ---- TRANSLATOR FREE ---- //
 
+    /*
+    async function translate(text, targetLang = "it") {
+    if (!text) return ""; // evita errori se testo mancante
 
-    
+    try {
+        const response = await fetch("https://libretranslate.com/translate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                q: text,
+                source: "en",
+                target: targetLang,
+                format: "text"
+            })
+        });
 
-    const apiKey = "cafa71e779ec411ab6e093dfb9d7f1a2";
+        const data = await response.json();
+        return data.translatedText;
+    } catch (err) {
+        console.error("Errore traduzione:", err);
+        return text; // fallback → testo originale
+    }
+}
+const testoTradottoIt = await translate(details.instructions, "it");
+const testoTradottoFr = await translate(details.instructions, "fr");
+*/
+///start my code 
+
+    const lang = document.getElementById("langSelect").value;
+
+    const apiKey = "3cc0742200634fc99730107d372a7c2a";
     const vitB = document.getElementById("vitB");
     const subB = document.getElementById("subB");
 

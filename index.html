@@ -14,7 +14,7 @@
 
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Mangiare Sano</a>
+            <a class="navbar-brand" href="#" id="healmeat">Mangiare Sano</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
                 aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,13 +29,17 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link disable" aria-current="page" href="#">Home</a>
+                            <a class="nav-link disable" aria-current="page" href="#" id="home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="search.html">Search</a>
+                            <a class="nav-link active" aria-current="page" id= "search" href="search.html">Search</a>
                         </li>
                     </ul>
-
+                    <select id="langSelect">
+                        <option value="it">Italiano</option>
+                        <option value="fr">Francese</option>
+                        <option value="en">Inglese</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -47,10 +51,10 @@
     Il tuo browser non supporta il video.
 </video>
 <div class="content">
-    <h2>La parola del giorno è</h2>
+    <h2 id="texth2">La parola del giorno è</h2>
     <br>
-    <h1>Mangiare!</h1>
-    <p>Questa è una legge indiscussa dello stare bene</p>
+    <h1 id="texth1">Mangiare!</h1>
+    <p id="textp">Questa è una legge indiscussa dello stare bene</p>
     <div class="d-grid gap-2 col-6 mx-auto">
         <button class="btn btn-primary" type="button" id="show_more">Scopri di piu!</button>
     </div>

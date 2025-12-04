@@ -58,4 +58,7 @@ body .content .btn.btn-primary {
 body .content .btn.btn-primary:hover {
   transform: scale(1.1);
   font-size: 1.2rem;
+}
+body #langSelect {
+  margin-top: 15px;
 }/*# sourceMappingURL=style.css.map */
