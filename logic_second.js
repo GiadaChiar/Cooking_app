@@ -29,6 +29,108 @@ const testoTradottoIt = await translate(details.instructions, "it");
 const testoTradottoFr = await translate(details.instructions, "fr");
 */
 ///start my code 
+// Recupera lingua salvata o italiana di default
+const lang = localStorage.getItem("lang") || "it";
+
+// Dizionario traduzioni navbar + tabella vitamine
+const translations = {
+    it: {
+        table_vitamina: "Vitamina",
+        table_descrizione: "Descrizione",
+        table_nutrienti: "Nutrienti",
+
+        tabA_desc: "Ricca nei vegetali arancioni e gialli.",
+        tabA_food: "carote, zucca, albicocche, patate dolci, melone.",
+
+        tabB_desc: "Spesso associate a cereali integrali e legumi.",
+        tabB_ul: `
+            <li>B1 (tiamina): cereali integrali, legumi</li>
+            <li>B2 (riboflavina): latte, mandorle</li>
+            <li>B3 (niacina): carne, arachidi</li>
+            <li>B5 (acido pantotenico): funghi, avocado</li>
+            <li>B6 (piridossina): banane, patate, cereali</li>
+            <li>B9 (acido folico): spinaci, asparagi, broccoli, avocado, legumi</li>
+            <li>B12: uova, latte, formaggi, carne, pesce</li>
+        `,
+
+        tabC_desc: "Presente in molti agrumi e frutti arancioni.",
+        tabC_food: "arance, limoni, fragole, kiwi, peperoni.",
+
+        tabD_desc: "Si trova in alimenti marini e con esposizione solare.",
+        tabD_food: "salmone, sgombro, uova, funghi esposti al sole.",
+
+        tabE_desc: "Contenuta in oli vegetali e semi.",
+        tabE_food: "olio di girasole, mandorle, nocciole, semi.",
+
+        tabK_desc: "Abbondante nelle verdure a foglia.",
+        tabK_food: "spinaci, cavolo nero, lattuga, broccoli, bietole."
+    },
+
+    fr: {
+        table_vitamina: "Vitamine",
+        table_descrizione: "Description",
+        table_nutrienti: "Nutriments",
+
+        tabA_desc: "Riche en légumes orange et jaunes.",
+        tabA_food: "carottes, potiron, abricots, patates douces, melon.",
+
+        tabB_desc: "Souvent associées aux céréales complètes et aux légumineuses.",
+        tabB_ul: `
+            <li>B1 : céréales complètes, légumineuses</li>
+            <li>B2 : lait, amandes</li>
+            <li>B3 : viande, arachides</li>
+            <li>B5 : champignons, avocat</li>
+            <li>B6 : bananes, pommes de terre, céréales</li>
+            <li>B9 : épinards, asperges, brocoli, avocat, légumineuses</li>
+            <li>B12 : œufs, lait, fromage, viande, poisson</li>
+        `,
+
+        tabC_desc: "Présente dans de nombreux agrumes.",
+        tabC_food: "oranges, citrons, fraises, kiwis, poivrons.",
+
+        tabD_desc: "Présente surtout dans les aliments marins.",
+        tabD_food: "saumon, maquereau, œufs, champignons exposés au soleil.",
+
+        tabE_desc: "Contenue dans les huiles végétales et les graines.",
+        tabE_food: "huile de tournesol, amandes, noisettes, graines.",
+
+        tabK_desc: "Abondante dans les légumes à feuilles.",
+        tabK_food: "épinards, chou kale, laitue, brocoli, blettes."
+    },
+
+    en: {
+        table_vitamina: "Vitamin",
+        table_descrizione: "Description",
+        table_nutrienti: "Nutrients",
+
+        tabA_desc: "Rich in orange and yellow vegetables.",
+        tabA_food: "carrots, pumpkin, apricots, sweet potatoes, melon.",
+
+        tabB_desc: "Often found in whole grains and legumes.",
+        tabB_ul: `
+            <li>B1: whole grains, legumes</li>
+            <li>B2: milk, almonds</li>
+            <li>B3: meat, peanuts</li>
+            <li>B5: mushrooms, avocado</li>
+            <li>B6: bananas, potatoes, cereals</li>
+            <li>B9: spinach, asparagus, broccoli, avocado, legumes</li>
+            <li>B12: eggs, milk, cheese, meat, fish</li>
+        `,
+
+        tabC_desc: "Found in many citrus fruits.",
+        tabC_food: "oranges, lemons, strawberries, kiwis, bell peppers.",
+
+        tabD_desc: "Found in marine foods and linked to sunlight exposure.",
+        tabD_food: "salmon, mackerel, eggs, sun-exposed mushrooms.",
+
+        tabE_desc: "Found in vegetable oils and seeds.",
+        tabE_food: "sunflower oil, almonds, hazelnuts, seeds.",
+
+        tabK_desc: "Abundant in leafy vegetables.",
+        tabK_food: "spinach, kale, lettuce, broccoli, chard."
+    }
+};
+
 
 
 //same langiage to first page or italian default
@@ -437,12 +539,60 @@ async function fetchRecipes(yourVit,Eat,Country) {
     //now logic if I click create table, show me table 
 
     navWrite.addEventListener("click", ()=>{
-        if(navWrite.textContent == "Le vitamine+"){
+        if(navWrite.textContent == "Le vitamine+" || navWrite.textContent == "The vitamins+"||navWrite.textContent == "Les vitamines+"){
             
             //create table 
         const Mytable= document.createElement("table");
         Mytable.id="table_1"
-        Mytable.innerHTML = `
+        Mytable.innerHTML = 
+                            `
+                        <thead>
+                            <tr>
+                                <td>${translations[lang].table_vitamina}</td>
+                                <td>${translations[lang].table_descrizione}</td>
+                                <td>${translations[lang].table_nutrienti}</td>
+                            </tr>
+
+                        <tbody>
+                            <tr>
+                                <td>A (Retinolo/Beta-carotene)</td>
+                                <td>${translations[lang].tabA_desc}</td>
+                                <td>${translations[lang].tabA_food}</td>
+                            </tr>
+
+                            <tr>
+                                <td>B</td>
+                                <td>${translations[lang].tabB_desc}</td>
+                                <td><ul>${translations[lang].tabB_ul}</ul></td>
+                            </tr>
+
+                            <tr>
+                                <td>C</td>
+                                <td>${translations[lang].tabC_desc}</td>
+                                <td>${translations[lang].tabC_food}</td>
+                            </tr>
+
+                            <tr>
+                                <td>D</td>
+                                <td>${translations[lang].tabD_desc}</td>
+                                <td>${translations[lang].tabD_food}</td>
+                            </tr>
+
+                            <tr>
+                                <td>E</td>
+                                <td>${translations[lang].tabE_desc}</td>
+                                <td>${translations[lang].tabE_food}</td>
+                            </tr>
+
+                            <tr>
+                                <td>K</td>
+                                <td>${translations[lang].tabK_desc}</td>
+                                <td>${translations[lang].tabK_food}</td>
+                            </tr>
+                        </tbody>
+`;
+        
+        /*`
                 <thead>
                     <tr><td>Vitamina</td><td>Descrizione</td><td>Nutrienti</td></tr>
                 </thead>
@@ -462,7 +612,7 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     <tr><td>E</td><td>Contenuta in oli vegetali e semi.</td><td>olio di girasole, mandorle, nocciole, semi.</td></tr>
                     <tr><td>K</td><td>Abbondante nelle verdure a foglia.</td><td>spinaci, cavolo nero, lattuga, broccoli, bietole.</td></tr>
                 </tbody>
-                `;
+                `;*/
 
                 //create button delete x
                 const deleteBt=document.createElement("button");
@@ -479,7 +629,15 @@ async function fetchRecipes(yourVit,Eat,Country) {
                         existingTable.remove()
                     }
                     deleteBt.remove();
-                    navWrite.textContent="Le vitamine+";
+
+                    if(chosenLang==="it"){
+                        navWrite.textContent="Le vitamine+";
+                    }else if (chosenLang==="en"){
+                        navWrite.textContent="The vitamins+";
+                    }else if (chosenLang==="fr"){
+                        navWrite.textContent="Les vitamines+";
+                    }
+                    
                 })
 
                 //append table to its div
@@ -501,12 +659,24 @@ async function fetchRecipes(yourVit,Eat,Country) {
                 texthome.textContent="Home";
                 textsearch.textContent="Search";
 
-    }
+}           if(chosenLang==="it"){
+                navWrite.textContent="Le vitamine -";
+            }else if (chosenLang==="en"){
+                navWrite.textContent="The vitamins -";
+            }else if (chosenLang==="fr"){
+                navWrite.textContent="Les vitamines -";
+            }
 
-                navWrite.textContent="Vitamine -"
+            
         }
         else{
-            navWrite.textContent="Le vitamine+"
+                if(chosenLang==="it"){
+                    navWrite.textContent="Le vitamine+";
+                }else if (chosenLang==="en"){
+                    navWrite.textContent="The vitamins+";
+                }else if (chosenLang==="fr"){
+                    navWrite.textContent="Les vitamines+";
+                }
             //delete table
             const existingTable = document.getElementById("table_1")
             if(existingTable){
