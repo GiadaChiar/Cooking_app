@@ -7,7 +7,9 @@ buttonShowMore.addEventListener("click", () => {
 
 })
 
+const chosenLang = localStorage.getItem("lang") || "it"; 
 const selectLanguage= document.getElementById("langSelect");
+selectLanguage.value = chosenLang;
 const healmeat= document.getElementById("healmeat");
 const texth2 = document.getElementById("texth2");
 const texth1 = document.getElementById("texth1");

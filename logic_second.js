@@ -30,7 +30,17 @@ const testoTradottoFr = await translate(details.instructions, "fr");
 */
 ///start my code 
 
-    const lang = document.getElementById("langSelect").value;
+
+//same langiage to first page or italian default
+    const chosenLang = localStorage.getItem("lang") || "it"; 
+    const texth5 = document.getElementById("offcanvasDarkNavbarLabel");
+    const texthome = document.getElementById("home");
+    const textsearch= document.getElementById("search");
+    const selectLanguage= document.getElementById("langSelect");
+    selectLanguage.value = chosenLang;
+    //function to change langue
+
+
 
     const apiKey = "3cc0742200634fc99730107d372a7c2a";
     const vitB = document.getElementById("vitB");
@@ -629,6 +639,34 @@ async function fetchRecipes(yourVit,Eat,Country) {
 
         }
     });
+
+    function updateWord() {
+    if(selectLanguage.value==="fr"){
+        texth5.textContent="Navigue";
+        texthome.textContent="Menu";
+        textsearch.textContent="Cherche";
+
+    }else if(selectLanguage.value==="it"){
+        texth5.textContent="Naviga";
+        texthome.textContent="Menu";
+        textsearch.textContent="Cerca";
+
+    }else if(selectLanguage.value==="en"){
+        texth5.textContent="Navigate";
+        texthome.textContent="Home";
+        textsearch.textContent="Search";
+
+    }
+    //to save the selection language
+    localStorage.setItem("lang", selectLanguage.value);
+    }
+
+
+//when I change language call function
+
+selectLanguage.addEventListener("change",updateWord);
+updateWord();
+
 
 
 
