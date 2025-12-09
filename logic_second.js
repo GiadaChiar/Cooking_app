@@ -135,7 +135,7 @@ const translations = {
 
 //same langiage to first page or italian default
     
-    const apiKey = "13cc17b8236f4f35a793846b89223cfd";
+    const apiKey = "e47ce8a60cc547608e8cca4e6ebd9a06";
     const chosenLang = localStorage.getItem("lang") || "it"; 
     const texth5 = document.getElementById("offcanvasDarkNavbarLabel");
     const texthome = document.getElementById("home");
@@ -279,7 +279,7 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     `includeIngredients=${encodeURIComponent(ingredientsQuery)}` +
                     `&type=${encodeURIComponent(Eat)}` +
                     `&cuisine=${encodeURIComponent(Country)}` +
-                    `&number=1` +
+                    `&number=2` +
                     `&apiKey=${apiKey}`;
 
         console.log("URL finale:", url);
@@ -313,7 +313,8 @@ async function fetchRecipes(yourVit,Eat,Country) {
     }
 
     console.log("Ricette tradotte:", simplifiedRecipes);
-
+       //before to create news elements I want to clean everything in recipiesDiv
+        recipiesDiv.innerHTML = "";
 
         //right description and left photo
         
@@ -354,6 +355,9 @@ async function fetchRecipes(yourVit,Eat,Country) {
                 //I get id
                 const recipeId = titleh2.id;
                 console.log("Id immagine = " + recipeId)
+                titleh2.style.pointerEvents = "none";
+                
+
 
                 //Request for time and recipes
 
@@ -496,11 +500,14 @@ async function fetchRecipes(yourVit,Eat,Country) {
 
 
                     boxHover.style.display ="block";
+                    titleh2.addEventListener("click", handler);
+                    
                 }
                 catch(error){
                     boxHover.innerHTML = "Errore nel catricamento dettagli"
-                    boxHover.style.display="block";
+                    boxHover.style.display="none";
                 }
+
 
                 //Create button x for extra detail 
 
@@ -529,14 +536,17 @@ async function fetchRecipes(yourVit,Eat,Country) {
                     existnPreparation.remove();
                 }
                 deleteBt.remove();
+                titleh2.style.pointerEvents = "auto";
+
                 })
+
             }) ;
         
             
 
             
         });
-
+    
 
 
         console.log("Ricette semplificate:", simplifiedRecipes);
@@ -803,7 +813,13 @@ async function fetchRecipes(yourVit,Eat,Country) {
 
             textVit= document.createElement("h2");
             textVit.id= "Vith";
-            textVit.textContent= "La vitamina selezionata è: "+ `${yourVit}`;
+            if(chosenLang==="it"){
+                textVit.textContent= "La vitamina selezionata è: "+ `${yourVit}`;
+            }else if(chosenLang==="en"){
+                textVit.textContent= "The selected vitamin is: "+ `${yourVit}`;
+            }else if(chosenLang==="fr"){
+                textVit.textContent= "La vitamine sèlectionnèe est: "+ `${yourVit}`
+            }   
             tableDiv.appendChild(textVit);
 
 
@@ -861,7 +877,13 @@ async function fetchRecipes(yourVit,Eat,Country) {
 
         textEat= document.createElement("h2");
         textEat.id="Eath"
-        textEat.textContent= "Il pasto selezionato è: "+ `${Eat}`;
+        if(chosenLang==="it"){
+            textEat.textContent= "Il pasto selezionato è: "+ `${Eat}`;
+        }if(chosenLang==="en"){
+            textEat.textContent= "The selected meal is: "+ `${Eat}`;
+        }if(chosenLang==="fr"){
+            textEat.textContent= "Le repas sélectionné est : "+ `${Eat}`;
+        }
         tableDiv.appendChild(textEat);
 
         checkSubmitReady();
@@ -895,8 +917,14 @@ async function fetchRecipes(yourVit,Eat,Country) {
 
         textCountry = document.createElement("h2");
         textCountry.id="Countryh"
-        textCountry.textContent= "Il Paese selezionato è: "+ `${Country}`;
-        tableDiv.appendChild(textCountry);
+        if(chosenLang==="it"){
+            textCountry.textContent= "Il Paese selezionato è: "+ `${Country}`;
+        }if(chosenLang==="en"){
+            textCountry.textContent= "The selected country is: "+ `${Country}`;
+        }if(chosenLang==="fr"){
+            textCountry.textContent= "Le pays sélectionné est: "+ `${Country}`;
+        }
+            tableDiv.appendChild(textCountry);
 
         }
     });
