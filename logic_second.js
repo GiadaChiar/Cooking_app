@@ -182,25 +182,6 @@ const translations = {
 };
 
 
-//function to call python process for traslation not here, in front-end
-//fetch to communicate with js back-end
-
-async function translateWithPython(text) {
-    try {
-        const response = await fetch("http://localhost:3000/translate", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ text }),
-        });
-
-        const data = await response.json();
-        return data.translated;
-    } catch (error) {
-        console.error("Errore nella conversione:", error);
-        return text; // fallback: testo originale
-    }
-}
-
 
 
 function removeVit(){
@@ -322,11 +303,11 @@ async function fetchRecipes(yourVit,Eat,Country) {
     const simplifiedRecipes = [];
 
     for (const recipe of data.results) {
-        const translatedTitle = await translateWithPython(recipe.title);
+        
 
         simplifiedRecipes.push({
             id: recipe.id,
-            title: translatedTitle,
+            title: recipe.title,
             image: recipe.image
         });
     }
