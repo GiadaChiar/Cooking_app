@@ -4,7 +4,7 @@ html, body {
   background-image: url("img/bowls_food.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   /* mostra menu principale al hover */
   /* mostra submenu al hover */
   /*
